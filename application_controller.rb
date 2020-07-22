@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   prepend_around_action :set_current_context
 
   around_action :sessionless_bypass_admin_mode!, if: :sessionless_user?
-  around_action :set_locale
+  # around_action :set_locale
   around_action :set_session_storage
   around_action :set_current_admin
 
@@ -478,9 +478,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_locale(&block)
-    Gitlab::I18n.with_user_locale(current_user, &block)
-  end
+  # def set_locale(&block)
+  #   Gitlab::I18n.with_user_locale(current_user, &block)
+  # end
 
   def set_session_storage(&block)
     return yield if sessionless_user?
