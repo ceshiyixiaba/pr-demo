@@ -478,9 +478,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_locale(&block)
-    Gitlab::I18n.with_user_locale(current_user, &block)
-  end
+  # def set_locale(&block)
+  #   Gitlab::I18n.with_user_locale(current_user, &block)
+  # end
 
   def set_session_storage(&block)
     return yield if sessionless_user?
